@@ -11,31 +11,23 @@
 
 #define MAX 10000
 
-int count(int t, int *parent) {
-    int total = 0;
-    while (parent[t] != -1) {
-        total++;
-        t = parent[t];
-    }
-    return total;
-}
-
 // assuming start is a valid point
 int bfs(int start, int end, int *codes, int n) {
     char visited[MAX] = {0};
-    std::queue<int> q;
+    std::queue<std::pair<int,int>> q;
     int parent[MAX];
 
-    q.push(start);
+    q.push(std::make_pair(start, 0));
     visited[start] = 1;
     parent[start] = -1;
 
     while(!q.empty()) {
-        int cur = q.front();
+        int cur = q.front().first;
+        int d = q.front().second;
         q.pop();
 
         if (cur == end) {
-            return count(cur, parent);
+            return d;
         }
 
         // all possible additions
@@ -43,8 +35,7 @@ int bfs(int start, int end, int *codes, int n) {
             int next = (cur + codes[i]) % 10000;
             if (!visited[next]) {
                 visited[next] = 1;
-                q.push(next);
-                parent[next] = cur;
+                q.push(std::make_pair(next, d+1));
             }
         }
 
