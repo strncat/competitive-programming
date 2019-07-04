@@ -34,7 +34,8 @@ int bfs() {
         q.pop();
         int i = std::get<0>(cur), j = std::get<1>(cur), d = std::get<2>(cur);
 
-        if (i == end_i && j == end_j) { return d+1; }
+        // can exit here or early below
+        //if (i == end_i && j == end_j) { return d; }
 
         // go through all neighbors
         // up
