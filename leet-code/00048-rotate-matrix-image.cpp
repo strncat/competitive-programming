@@ -5,7 +5,7 @@ public:
         int layers = n/2;
         
         for (int layer = 0; layer < layers; layer++) {
-            // in each layer we have n - layer - 1 cells
+            // in each layer we have n - 2*layer - 1 cells
             for (int i = 0; i < n - 2*layer - 1; i++) {
                 int x = layer;
                 int y = n - layer - 1;

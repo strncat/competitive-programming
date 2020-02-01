@@ -20,6 +20,7 @@ public:
                 } else {
                     right = mid - 1;
                 }
+            // case 2: left half is sorted
             } else {
                 // target is in the sorted half
                 if (target < nums[mid] && target >= nums[left]) {
