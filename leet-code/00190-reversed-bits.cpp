@@ -1,16 +1,13 @@
 class Solution {
 public:
     uint32_t reverseBits(uint32_t n) {
-        uint32_t reversed = 0;
-        for (int i = 0; i < 32; i++) {
-            reversed <<= 1; // reversed = reversed*2
-            //reversed |= n & 1;
-            if (n & 1) {
-                reversed = reversed | 1;
-            }
-            n >>= 1; // n=n/2
+        int result = 0;
+        for (int i = 0; i < 32; i++) { // need to iterate over ALL bits
+            result <<= 1;
+            result |= (n & 1);
+            n >>= 1;
         }
-        return reversed;
+        return result;
     }
     /* naive
     uint32_t reverseBits(uint32_t n) {
