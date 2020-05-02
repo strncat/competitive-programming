@@ -1,7 +1,7 @@
 //
 //  uva 1595 - Symmetry
 //
-//  Created by Fatima B on 10/18/15.
+//  Created by FB on 10/18/15.
 //  Copyright © 2015 nemo. All rights reserved.
 //
 //  not the shortest solution out there, after submitting this,
