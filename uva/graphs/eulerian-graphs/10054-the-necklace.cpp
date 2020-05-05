@@ -45,7 +45,6 @@ void dfs() {
 
     while (!s.empty()) {
         int current_node = s.top(); s.pop(); // pick some node
-        //printf("Popping %d from the stack\n", v);
 
         // now traverse it's edges
         while (!graph[current_node].empty()) {
@@ -64,10 +63,8 @@ void dfs() {
 
             // (d) move to the other end of edge to process it
             current_node = other_end(current_node, edge);
-            printf("%d ", current_node);
+            //printf("%d ", current_node);
         }
-        printf("---\n");
-        printf("push %d\n", current_node);
         // push the current_node which has no edges anymore to traverse
         cycle.push(current_node);
     }
