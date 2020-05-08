@@ -14,7 +14,26 @@
 #include <sstream>
 #include <set>
 #include <stack>
-#include <unordered_map>
+
+void combinations(std::vector<int>& combination,
+                  std::vector<int>& a,
+                  int start,
+                  int position_to_be_filled) {
+    if (position_to_be_filled > 5) { // we are done, print combination
+        printf("%d", combination[0]);
+        for (int i = 1; i < 6; i++) {
+            printf (" %d", combination[i]);
+        }
+        printf ("\n");
+        return;
+    }
+    int n = (int)a.size();
+    for (int i = start; i < n; i++) {
+        combination[position_to_be_filled] = a[i];
+        // now recursively generate combinations for the next position / next possible start
+        combinations(combination, a, i+1, position_to_be_filled+1);
+    }
+}
 
 void print_combination(std::vector<int>& a, std::vector<bool>& sel) {
     int n = (int)a.size();
@@ -55,7 +74,7 @@ void backtrack(std::vector<int>& a,
 }
 
 int main() {
-    freopen("in.txt" , "r" , stdin);
+    //freopen("in.txt" , "r" , stdin);
 
     int k;
     scanf("%d", &k);
@@ -69,12 +88,13 @@ int main() {
 
         std::sort(a.begin(), a.end());
 
-        std::vector<bool> sel(a.size(), false);
-        // a = [1,3,4,6,7,8,...] actual elements
-        // index = 0
-        // sel = [false, false, ... ] for all elements
-        // number of selections made so far
-        backtrack(a, 0, sel, 0);
+        // this way
+        //std::vector<bool> sel(a.size(), false);
+        //backtrack(a, 0, sel, 0);
+
+        // or this way both work!
+        std::vector<int> combination(6, 0);
+        combinations(combination, a, 0, 0);
 
         scanf("%d", &k);
         if (k == 0) {
