@@ -27,7 +27,6 @@ void fill_amicable_sum(int n) {
             }
         }
     }
-    //map[amicable_sum[n]] = n;
 }
 
 int main(int argc, const char * argv[]) {

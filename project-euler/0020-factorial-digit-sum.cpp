@@ -58,7 +58,6 @@ int main(int argc, const char * argv[]) {
     a[0] = 4;
 
     for (int num = 5; num <= 100; num++) {
-
         // copy result to b
         for (int i = 0; i < N; i++) {
             b[i] = result[i];
